@@ -38,7 +38,9 @@ does not work consistently on my hardware, I've had the most luck with Nvidia. L
 towards not using GRUB and simply using VGA mode 12h (640x480x4), since that should be good enough and
 more compatible across my hardware.
 
-I was able to get the Objective-C runtime up and running.
+I was able to get the Objective-C runtime up and running, as well as most of the code from HOTDOG.
+This makes it easy to draw text using different fonts and so on. At the moment I am using the
+Commodore 64 font and colors.
 
 I am able to read input from the keyboard and mouse.
 
