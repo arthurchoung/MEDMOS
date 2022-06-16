@@ -11,8 +11,8 @@ Some consider it to be the "gold standard" for MIDI timing.
 
 I have always been frustrated by modern computers with USB becoming the dominant interface for music.
 
-Adding to that frustration are modern operating systems that become slower and slower over time,
-optimizing for throughput rather than latency.
+Adding to that frustration are modern operating systems that become slower and slower over time with
+higher and higher latency.
 
 So this project is intended to be a single tasking operating system along the lines of an Atari ST
 or a Commodore 64, with a focus on MIDI and audio in general, where the audio hardware is accessed
