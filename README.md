@@ -27,9 +27,9 @@ of a successor to the Atari 800. The Atari ST has MIDI, while the Commodore 64 h
 
 One of the following:
 
-Ensoniq AudioPCI 1370 (ES1370) (PCI ID: 0x50001274)
-Ensoniq AudioPCI 1371 (ES1371) (PCI ID: 0x13711274)
-Soundblaster Live (PCI ID: 0x00021102)
+* Ensoniq AudioPCI 1370 (ES1370) (PCI ID: 0x50001274)
+* Ensoniq AudioPCI 1371 (ES1371) (PCI ID: 0x13711274)
+* Soundblaster Live (PCI ID: 0x00021102)
 
 # 2022-06-16
 
