@@ -2,6 +2,10 @@
 
 MIDI Emphasized Deterministic Monotasking Operating System
 
+## Download
+
+http://arthurchoung.com/download/
+
 ## Overview
 
 The goal of this project is to recreate the MIDI features of the Atari ST, on x86 hardware.
