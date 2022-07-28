@@ -23,13 +23,72 @@ During that era, I had a Commodore Amiga, and before that, a Commodore 64. I did
 time that the Atari ST is more of a successor to the Commodore 64, and the Commodore Amiga is more
 of a successor to the Atari 800. The Atari ST has MIDI, while the Commodore 64 has the SID chip.
 
-## Requirements
+## Hardware Requirements
 
 One of the following:
 
 * Ensoniq AudioPCI 1370 (ES1370) (PCI ID: 0x50001274)
 * Ensoniq AudioPCI 1371 (ES1371) (PCI ID: 0x13711274)
 * Soundblaster Live (PCI ID: 0x00021102)
+
+## Software Requirements
+
+* grub2
+* xorriso
+
+## Notes
+
+The Bare Bones tutorial at OSDev.org has provided the starting point for this project.
+
+The Objective C runtime being used is the GCC runtime.
+
+## How To Build
+
+First, build the toolchain. You can edit the scripts to parallelize the builds (i.e. make -j4).
+
+$ cd Toolchain
+
+$ sh build_binutils.sh
+
+$ sh build_gcc.sh
+
+$ cd ..
+
+Next, build the Objective C runtime.
+
+$ cd ObjectiveC
+
+$ sh build.sh
+
+$ cd ..
+
+Next, build the kernel.
+
+$ cd Kernel
+
+$ sh build.sh
+
+$ cd ..
+
+It should display "Done" if it is successful. Otherwise there is a compile error.
+
+Next, build the supporting code.
+
+$ git clone https://github.com/arthurchoung/HOTDOG
+
+$ perl build.pl
+
+Note that you are running the build.pl script in the MEDMOS directory, not the HOTDOG directory.
+
+This should create a binary file 'ISO/medmos'.
+
+Next, make the iso.
+
+$ sh make_iso.sh
+
+This should create an .iso file.
+
+Finally, you can use 'dd' to copy the .iso file to a USB stick, and boot from it.
 
 # 2022-06-16
 
