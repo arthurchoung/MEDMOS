@@ -1,0 +1,10 @@
+Build-binutils
+Build-gcc
+binutils-*
+gcc-*
+bin
+i586-elf
+include
+lib
+libexec
+share
