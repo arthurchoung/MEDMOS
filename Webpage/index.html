@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>HOT DOG MED MOS</title>
+</head>
+<body style="background-color:#00ff00;">
+<div style="width:80%; margin:auto; background-color:white;border: 1px solid black;">
+<div style="border: 4px solid gray;">
+<div style="border: 1px solid black; padding-left:1em; padding-right:1em;">
+<h1 align=center><img src="logo.png" style="padding-bottom:4px"> HOT DOG MED MOS <img src="logo.png" style="padding-bottom:4px"></h1>
+<hr style="clear:both">
+
+<h2><b>M</b>IDI <b>E</b>mphasized <b>D</b>eterministic <b>M</b>onotasking <b>O</b>perating <b>S</b>ystem</h2>
+
+<h3>Download ISO</h3>
+
+<p>
+<a href="http://arthurchoung.com/download/">http://arthurchoung.com/download/</a>
+
+<h3>Source Code</h3>
+
+<p>
+<a href="https://github.com/arthurchoung/MEDMOS">http://github.com/arthurchoung/MEDMOS</a>
+
+<h3>Overview</h3>
+
+<p>
+The goal of this project is to recreate the MIDI features of the Atari ST, on x86 hardware.
+
+<p>
+For some reason, I am fascinated by the Atari ST and how it is capable of solid, tight MIDI timing.
+Some consider it to be the "gold standard" for MIDI timing.
+
+<p>
+I have always been frustrated by modern computers with USB becoming the dominant interface for music.
+
+<p>
+Adding to that frustration are modern operating systems that become slower and slower over time with
+higher and higher latency.
+
+<p>
+So this project is intended to be a single tasking operating system along the lines of an Atari ST
+or a Commodore 64, with a focus on MIDI and audio in general, where the audio hardware is accessed
+directly, with nothing getting in the way.
+
+<p>
+I have never actually used an Atari ST before. I don't even think I have ever seen one in person.
+During that era, I had a Commodore Amiga, and before that, a Commodore 64. I did not realize at the
+time that the Atari ST is more of a successor to the Commodore 64, and the Commodore Amiga is more
+of a successor to the Atari 800. The Atari ST has MIDI, while the Commodore 64 has the SID chip.
+
+<p>
+MED MOS builds upon another project, <a href="http://hotdoglinux.com">HOT DOG Linux</a>.
+
+<h3>Hardware Requirements</h3>
+
+<p>
+One of the following:
+
+<ul>
+<li>Ensoniq AudioPCI 1370 (ES1370) (PCI ID: 0x50001274)
+<li>Ensoniq AudioPCI 1371 (ES1371) (PCI ID: 0x13711274)
+<li>Soundblaster Live (PCI ID: 0x00021102)
+</ul>
+
+<h3>Software Requirements</h3>
+
+<ul>
+<li>grub2
+<li>xorriso
+</ul>
+
+<h3>Notes</h3>
+
+<p>
+The Bare Bones tutorial at OSDev.org has provided the starting point for this project.
+
+<p>
+The Objective C runtime being used is the GCC runtime.
+
+<h3>How To Build</h3>
+
+<p>
+First, build the toolchain. You can edit the scripts to parallelize the builds (i.e. make -j4).
+
+<p>
+$ cd Toolchain
+
+<p>
+$ sh build_binutils.sh
+
+<p>
+$ sh build_gcc.sh
+
+<p>
+$ cd ..
+
+<p>
+Next, build the Objective C runtime.
+
+<p>
+$ cd ObjectiveC
+
+<p>
+$ sh build.sh
+
+<p>
+$ cd ..
+
+<p>
+Next, build the kernel.
+
+<p>
+$ cd Kernel
+
+<p>
+$ sh build.sh
+
+<p>
+$ cd ..
+
+<p>
+It should display "Done" if it is successful. Otherwise there is a compile error.
+
+<p>
+Next, build the supporting code.
+
+<p>
+$ git clone https://github.com/arthurchoung/HOTDOG
+
+<p>
+$ perl build.pl
+
+<p>
+Note that you are running the build.pl script in the MEDMOS directory, not the HOTDOG directory.
+
+<p>
+This should create a binary file 'ISO/medmos'.
+
+<p>
+Next, make the iso.
+
+<p>
+$ sh make_iso.sh
+
+<p>
+This should create an .iso file.
+
+<p>
+Finally, you can use 'dd' to copy the .iso file to a USB stick, and boot from it.
+
+<h3>2022-06-16</h3>
+
+<p>
+<img src="medmos-20220616.png">
+
+<p>
+I followed the Bare Bones tutorial at OSDev.org, and was able to get a basic system up and running.
+
+<p>
+It uses GRUB to boot a multiboot kernel into 640x480x32. GRUB and the way it selects a graphics mode
+does not work consistently on my hardware, I've had the most luck with Nvidia. Long term, I am leaning
+towards not using GRUB and simply using VGA mode 12h (640x480x4), since that should be good enough and
+more compatible across my hardware.
+
+<p>
+I was able to get the Objective-C runtime up and running, as well as most of the code from HOTDOG.
+This makes it easy to draw text using different fonts and so on. At the moment I am using the
+Commodore 64 font and colors.
+
+<p>
+I am able to read input from the keyboard and mouse.
+
+<p>
+I am able to detect the ES1371, enable the UART, send MIDI data, as well as receive MIDI data and
+indicate which notes are being played on the piano. I am currently polling, so the receive code is
+hacky and very ugly. I really need to implement interrupts.
+
+<h3>2022-06-18</h3>
+
+<p>
+I was able to get the ES1370 and Soundblaster Live working as well.
+
+<h3>Legal</h3>
+
+<p>
+Copyright (c) 2022 Arthur Choung. All rights reserved.
+
+<p>
+Email: arthur -at- arthurchoung.com
+
+<p>
+Released under the GNU General Public License, version 3.
+
+<p>
+For details on the license, refer to the LICENSE file.
+</div>
+</div>
+</div>
+
