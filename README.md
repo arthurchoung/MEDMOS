@@ -2,7 +2,7 @@
 
 MIDI Emphasized Deterministic Monotasking Operating System
 
-## Download
+## Download ISO
 
 http://arthurchoung.com/download/
 
